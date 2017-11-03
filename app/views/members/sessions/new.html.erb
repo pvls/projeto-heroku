@@ -3,7 +3,6 @@
 <head>
 	<meta charset="utf-8">
     <title>Encostaki</title>
-    <img alt="Logo" src="/assets/logopinfinal.png" />
     <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
     
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
@@ -22,7 +21,7 @@
         <div id="centro">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <h1>Login</h1>
-            <%= image_tag 'logopinfinal',id:"logopin"%>
+            <img alt="logopinfinal" src="/assets/logopinfinal.png" class="logopin" />
             <div class="field">
               <p>Usuário</p>
               <%= f.email_field :email, autofocus: true %>
