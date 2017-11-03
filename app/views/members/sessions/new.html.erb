@@ -21,7 +21,7 @@
         <div id="centro">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <h1>Login</h1>
-            <%= image_tag('logopinfinal.png') %>
+            <%= image_tag('logopinfinal.png', id:'logopin') %>
             <div class="field">
               <p>Usuário</p>
               <%= f.email_field :email, autofocus: true %>
