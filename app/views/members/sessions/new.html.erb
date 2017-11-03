@@ -22,7 +22,7 @@
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             
             <h1>Login</h1>
-            
+            <%= image_tag 'logopinfinal', class:'logopin'%>
             <div class="field">
               <p>Usuário</p>
               <%= f.email_field :email, autofocus: true %>
