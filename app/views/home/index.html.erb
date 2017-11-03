@@ -49,16 +49,7 @@
                     <li><a href="#">Page 3</a></li>
                     -->
                   </ul>
-                   <% if member_signed_in? %>
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><%= link_to current_member.email %></li>
-                      <li><%= link_to "Sair", destroy_member_session_path, method: :delete %></li>
-                      <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
-                    </ul>
-                  <% else %>
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><%= link_to "Login", new_member_session_path %></li>
-                      <li><%= link_to "Cadastrar", new_member_registration_path,name:"Cadastrar" %></li>
+
                   <% end %>
                   </ul>
                 </div>
