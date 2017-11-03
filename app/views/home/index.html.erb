@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
     <title>Encostaki</title>
+   
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -13,7 +14,7 @@
 <body>
 <div class="container">
     <section class="header">
-        <%= image_tag "logofinal", id:"logo"%>
+        
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <nav class="navbar navbar-inverse">
@@ -47,6 +48,19 @@
                     <li><a href="#">Page 2</a></li>
                     <li><a href="#">Page 3</a></li>
                     -->
+                  </ul>
+                   <% if member_signed_in? %>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><%= link_to current_member.email %></li>
+                      <li><%= link_to "Sair", destroy_member_session_path, method: :delete %></li>
+                      <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+                    </ul>
+                  <% else %>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><%= link_to "Login", new_member_session_path %></li>
+                      <li><%= link_to "Cadastrar", new_member_registration_path,name:"Cadastrar" %></li>
+                  <% end %>
+                  </ul>
                 </div>
               </div>
             </nav>    	    
