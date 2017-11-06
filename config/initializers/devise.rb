@@ -276,4 +276,5 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], callback_url: "https://encostakiapp.herokuapp.com/members/auth/facebook/callback"
   #config.omniauth :facebook, '510749972610314', '9cdf6fa3e0a9c7c745e2dc7c5e90717b', callback_url: "https://e-facebook-omni-pvls.c9users.io/members/auth/facebook/callback"
+  #limitless-savannah-53252
 end

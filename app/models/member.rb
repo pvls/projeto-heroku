@@ -8,7 +8,6 @@ class Member < ApplicationRecord
       member.email = auth.info.email
       member.name = auth.info.name
       member.password = Devise.friendly_token[0,20]
-      member.image = auth.info.image
     end
   end
   
