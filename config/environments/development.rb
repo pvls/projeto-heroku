@@ -55,9 +55,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   #lEMBRAR DE QUANDO FOR DAR DEPLOY MUDAR ESSES CODIGOS.
-  ENV['FACEBOOK_APP_ID'] = "2427701934121933";
+  ENV['FACEBOOK_APP_ID'] = "143681756279007";
   #Esse é o codigo do heroku ENV['FACEBOOK_APP_ID'] = "510749972610314";
-  ENV['FACEBOOK_APP_SECRET'] = "a043b078cafc4a7eacfdd6181e0fad28";
+  ENV['FACEBOOK_APP_SECRET'] = "3f63c5488ee12026e79faa6005d1902c";
   #Esse é o codigo do heroku ENV['FACEBOOK_APP_SECRET'] = "9cdf6fa3e0a9c7c745e2dc7c5e90717b";
   #senha do gmail: Encostakiapp2017 e a do facebook: Encostakiapp2017! logins: encostakiapp@gmail.com
 end

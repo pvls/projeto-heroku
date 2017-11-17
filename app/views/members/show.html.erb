@@ -1,0 +1,14 @@
+<% if current_member.name != nil %>
+    <p><%= image_tag(current_member.smallimage) %></p>
+<%else%>
+    <p><%= image_tag(current_member.avatar.url(:thumb)) %></p>
+<% end %> 
+
+<p><%= "Olá, #{@membername.capitalize} !" %></p>
+<p>O que você gostaria de fazer?</p>
+<p><%= link_to "Alterar meus dados", edit_member_registration_path %></p>
+<p><%= link_to "Checar as estatísticas", statistcs_path %></p>
+<p><%= link_to "Cancelar minha conta", edit_member_path %></p>
+<p><%= link_to "Voltar ao menu principal", root_path %></p>
+
+

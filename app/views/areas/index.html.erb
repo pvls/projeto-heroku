@@ -34,6 +34,8 @@
   </tbody>
 </table>
 
+<%= pie_chart Area.group(:localidade).count %>
+
 <h2> Import </h2>
 <%= form_for :dump, :url => import_area_path, :html => { :multipart => true} do |f| -%>
   <table>

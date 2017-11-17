@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
+gem 'paperclip', '~> 4.1'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -36,6 +36,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Import CSV
  gem 'roo', "~> 2.7.0"
+
+#graphs
+gem 'chartkick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

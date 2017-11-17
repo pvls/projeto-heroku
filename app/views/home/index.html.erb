@@ -6,7 +6,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
 
 </head>
 
@@ -29,9 +29,10 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                   <ul class="nav navbar-nav">
                     <li class=""><%= link_to "Home", "/" %></li>
-                    <li><a href="#">Chamados</a></li>
- 		            <li><a href="#">Informações</a></li>
- 		            <li><a href="#">Estatísticas</a></li>
+                   <li><a href="#">Chamados</a></li>
+ 		           <li><a href="#">Informações</a></li> 
+                   <li> <%= link_to "Estatísticas", statistcs_path %> </li> 		           
+ 		            <li><%= link_to "Comentários", comentarios_path %></li>
  		            <li><%= link_to "Cadastro de Áreas de Risco", new_area_path %></li>
  		            <li><%= link_to "Áreas de Risco", areas_path %></li>
  		            
@@ -48,14 +49,32 @@
                     <li><a href="#">Page 3</a></li>
                     -->
                   </ul>
+
                    <% if member_signed_in? %>
+                      <% if current_member.name != nil %>
+                        <ul class="nav navbar-nav navbar-right">
+                          <li><%= link_to current_member.name, "/members/1" %></li>
+                          <li><%= image_tag(current_member.smallimage) %></li>
+                          <li><%= link_to "Sair", destroy_member_session_path, method: :delete %></li>
+                          <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+                        </ul>
+                      <%else%>
+                            <ul class="nav navbar-nav navbar-right">
+                              <li><%= link_to current_member.email, "/members/1" %></li>
+                              <li><%= image_tag(current_member.avatar.url(:thumb)) %></li>
+                              <li><%= link_to "Sair", destroy_member_session_path, method: :delete %></li>
+                              <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+                            </ul>
+                      <% end %> 
+                  
+                  <% else %>
                     <ul class="nav navbar-nav navbar-right">
-                      <li><%= link_to current_member.email, "/" %></li>
-                      <li><%= image_tag(current_member.smallimage)%></li>
-                      <li><%= link_to "Sair", destroy_member_session_path, method: :delete %></li>
-                      <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+                      <li><%= link_to "Login", new_member_session_path %></li>
+                      <li><%= link_to "Cadastrar", new_member_registration_path,name:"Cadastrar" %></li>
                     </ul>
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                  <% end %>
+                  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://code.jqu,ery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
@@ -105,12 +124,6 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVW_TaNxAKo2ATMVcdf2Q1YQlFe_H7-zY&callback=initMap">
         </script>
-                  <% else %>
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><%= link_to "Login", new_member_session_path %></li>
-                      <li><%= link_to "Cadastrar", new_member_registration_path,name:"Cadastrar" %></li>
-                  <% end %>
-                  </ul>
                 </div>
               </div>
             </nav>    	    
@@ -119,6 +132,8 @@
         </div>
     </section>
     
+    
+    
 </div>
 
         <div id="esquerda">
@@ -126,6 +141,8 @@
         
         </div>
         
+
+
 
 </body>
 </html>
