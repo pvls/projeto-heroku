@@ -37,8 +37,8 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Atualizar dados" %>
+    <%= f.submit "Atualizar dados" ,  data: { confirm: "Seus dados serão atualizados! Tem certeza disso?" } %>
   </div>
 <% end %>
 
-<%= link_to "Voltar", :back %>
+<%= link_to "Voltar", "/members/1" %>

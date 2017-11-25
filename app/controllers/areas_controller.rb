@@ -15,7 +15,7 @@ class AreasController < ApplicationController
 
   # GET /areas/new
   def new
-    @area = Area.new
+     @area = Area.new
   end
   
   #Importar dados do CSV
