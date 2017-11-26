@@ -1,0 +1,69 @@
+<%= image_tag("logofinal.png", id:"logo")%>
+<div class="custom_navbar">
+       <%= link_to "Home", "/" %>
+ 		   <%= link_to "Informações", info_index_path %> 
+        
+<% if member_signed_in? %>
+  <%= link_to "Estatísticas", statistcs_path %> 		           
+   <% if current_member.email == "admin@admin.com"
+        current_member.role = :admin
+        current_member.save
+    end%>
+   <% if current_member.name != nil %> 
+       <div class="custom_dropdown">
+        <button class="dropbtn"><%= image_tag(current_member.smallimage) %>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="custom_dropdown-content">
+          <a><%= current_member.name %></a>
+          <a href="#"><%= link_to "Visualizar Perfil", "/members/1" %></a>
+          <a href="#"><%= link_to "Sair", destroy_member_session_path, method: :delete %></a>
+        </div>
+      </div>
+      <%else%>
+      <div class="custom_dropdown">
+        <button class="dropbtn"><%= image_tag(current_member.avatar.url(:thumb)) %>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="custom_dropdown-content">
+          <a><%= current_member.email %></a>
+          <%= link_to "Visualizar Perfil", "/members/1" %>
+          <%= link_to "Alterar meus dados", edit_member_registration_path %>
+          <%= link_to "Sair", destroy_member_session_path, method: :delete %>
+        </div>
+      </div>
+         <% if current_member.admin?%>
+          <div class="custom_dropdown">
+            <button class="dropbtn">Áreas de risco
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="custom_dropdown-content">
+              <%= link_to "Visualizar todas áreas de Risco", areas_path %>
+              <%= link_to "Cadastro de Áreas de Risco", new_area_path %>
+            </div>
+          </div>         
+              
+         <%end%>
+     
+      <% end %> 
+
+<div class="custom_dropdown">
+    <button class="dropbtn">Chamados
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="custom_dropdown-content">
+      <%= link_to "Visualizar todos chamados", support_requests_path %>
+      <%= link_to "Abrir chamado", new_support_request_path %>
+    </div>
+</div>                
+<% else %>
+<div class="log_links">
+<%= link_to "Login", new_member_session_path %>
+<%= link_to "Cadastrar", new_member_registration_path,name:"Cadastrar"%>  
+</div>             		     
+<% end %>
+
+</div>
+<br>
+
+

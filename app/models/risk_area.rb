@@ -1,2 +1,0 @@
-class RiskArea < ApplicationRecord
-end
